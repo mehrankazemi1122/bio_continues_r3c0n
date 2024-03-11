@@ -17,7 +17,7 @@ fi
 # Iterate over each line in the file#
 while IFS= read -r line; do
     response=$(curl -s "$line")
-    encoded_response=$(echo -n "$response" | base64)
+    encoded_response=$(echo "$response" | base64)
 #    echo $response | base64
     if [ "$encoded_response" = "Cg==" ]; then
         echo "nothing !!!"
