@@ -9,7 +9,7 @@ jobs:
     steps:
 #    - name: Install curl
 #      run: |
-#        sudo apt-get update
+#        sudo apt-get update#
 #        sudo apt-get install curl
     - name: recon execution
       run: |
