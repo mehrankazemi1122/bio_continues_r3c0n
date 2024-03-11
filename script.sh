@@ -30,5 +30,6 @@ while IFS= read -r line; do
         # Send the JSON response to test.com
         curl -X POST -H "Content-Type: application/json" -d "$json_target" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
         curl -X POST -H "Content-Type: application/json" -d "$json_response" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
+                curl -X POST -H "Content-Type: application/json" -d "{\"content\":\"------------------------\"}" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
     fi
 done < "$filename"
