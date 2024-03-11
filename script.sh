@@ -23,6 +23,6 @@ while IFS= read -r line; do
         # Convert the response to a JSON object and send it
         # Assuming the server at test.com expects a field named "data" containing the response
         # Adjust the JSON structure as needed for your specific use case
-        curl -X POST -H "Content-Type: application/json" -d "{\"data\": \"$response\",\"target\": \"$line\"}" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
+        curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"$response\"}" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
     fi
 done < "$filename"
