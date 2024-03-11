@@ -24,7 +24,7 @@ while IFS= read -r line; do
     else
         # Convert the response to a JSON object with jq
         # The response is assumed to be a simple string that needs to be JSON encoded
-        json_response=$(jq -nc --arg resp "$response" '{"content": $resp\\n$line}')
+        json_response=$(jq -nc --arg resp "$response" '{"content": "$resp\\n$line"}')
 
         # Send the JSON response to test.com
         curl -X POST -H "Content-Type: application/json" -d "$json_response" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
