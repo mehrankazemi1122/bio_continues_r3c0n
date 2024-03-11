@@ -20,9 +20,11 @@ while IFS= read -r line; do
     if [ -z "$response" ]; then
         echo "nothing !!!"
     else
-        # Convert the response to a JSON object and send it
-        # Assuming the server at test.com expects a field named "data" containing the response
-        # Adjust the JSON structure as needed for your specific use case
-        curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"test\"}" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
+        # Convert the response to a JSON object with jq
+        # The response is assumed to be a simple string that needs to be JSON encoded
+        json_response=$(jq -nc --arg resp "$response" '{"response": $resp}')
+
+        # Send the JSON response to test.com
+        curl -X POST -H "Content-Type: application/json" -d "$json_response" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
     fi
 done < "$filename"
