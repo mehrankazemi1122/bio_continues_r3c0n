@@ -14,7 +14,7 @@ if [ ! -f "$filename" ]; then
     exit 1
 fi
 
-# Iterate over each line in the file#
+# Iterate over each line in the file##
 while IFS= read -r line; do
     response=$(curl -s "$line")
     encoded_response=$(echo "$response" | base64)
