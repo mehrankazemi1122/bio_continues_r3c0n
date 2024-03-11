@@ -8,7 +8,7 @@ fi
 
 filename="$1"
 
-# Check if the file exists
+# Check if the file existss
 if [ ! -f "$filename" ]; then
     echo "File not found: $filename"
     exit 1
