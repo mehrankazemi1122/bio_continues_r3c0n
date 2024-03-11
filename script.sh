@@ -16,16 +16,13 @@ fi
 
 # Iterate over each line in the file
 while IFS= read -r line; do
-    response=$(curl -s "$line" | tr -d '[:space:]')
+    response=$(curl -s "$line")
     if [ -z "$response" ]; then
         echo "nothing !!!"
     else
-        # Ensure the response is not empty or just whitespace before sending
-        trimmed_response=$(echo "$response" | tr -d '[:space:]')
-        if [ -z "$trimmed_response" ]; then
-            echo "nothing !!!"
-        else
-            curl -X POST -d "$response" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
-        fi
+        # Convert the response to a JSON object and send it
+        # Assuming the server at test.com expects a field named "data" containing the response
+        # Adjust the JSON structure as needed for your specific use case
+        curl -X POST -H "Content-Type: application/json" -d "{\"data\": \"$response\",\"target\": \"$line\"}" https://discord.com/api/webhooks/1216775264588005407/KPWsewc6mEFSPesILV8WFDi8eB6SXC6wZ_Inno-_GJU_jQKzSXdp5NX3HAtIuNzZyUEX
     fi
 done < "$filename"
