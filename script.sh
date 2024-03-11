@@ -17,8 +17,9 @@ fi
 # Iterate over each line in the file
 while IFS= read -r line; do
     response=$(curl -s "$line")
+    encoded_response=$(echo -n "$response" | base64)
 #    echo $response | base64
-    if [ "$response" = $'\n' ]; then
+    if [ "$encoded_response" = "Cg==" ]; then
         echo "nothing !!!"
     else
         # Convert the response to a JSON object with jq
