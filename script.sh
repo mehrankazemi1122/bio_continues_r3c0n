@@ -17,6 +17,7 @@ fi
 # Iterate over each line in the file
 while IFS= read -r line; do
     response=$(curl -s "$line")
+    echo $response | base64
     if [ -z "$response" ]; then
         echo "nothing !!!"
     else
