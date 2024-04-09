@@ -19,7 +19,7 @@ while IFS= read -r line; do
     response=$(curl -s "$line")
     encoded_response=$(echo "$response" | base64)
 #    echo $response | base64
-    if [ "$encoded_response" = "Cg==" ]; then
+    if [ "$encoded_response" = "Cg==" ] || [ "$response" = "404 page not found" ]; then
         echo "nothing !!!"
     else
         # Convert the response to a JSON object with jq
