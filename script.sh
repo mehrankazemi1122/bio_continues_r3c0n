@@ -18,8 +18,8 @@ fi
 while IFS= read -r line; do
     response=$(curl -s "$line")
     echo $response
-    echo $response | base64
     encoded_response=$(echo "$response" | base64)
+    echo $encoded_response
 #    echo $response | base64
     if [ "$encoded_response" = "Cg==" ] || [ "$response" = "404 page not found" ]; then
         echo "nothing !!!"
