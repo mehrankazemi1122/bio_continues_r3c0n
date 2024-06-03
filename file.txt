@@ -25,6 +25,7 @@ https://zap.int.remitly.com
 https://preprod.dev.remitly.com
 prmdev.dell.com
 prm-ps3dmz.dell.com
+jamfdev.verisign.com
 prmstg.dell.com
 https://www.dev.remitly.com
 https://www.jpm.dev.remitly.com
